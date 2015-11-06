@@ -2,25 +2,33 @@
 
 # Given a video file, extract its I-frames to thmbs/*.jpeg
 
-$video="$1"
+video="$1"
 [[ $# -ne 1 ]] && echo "Usage: $0  ‹Path to a video file›" && exit 1
 
 function gen_thumbnails() {
-    local dir="$1"
-    local video="$2"
-
-    mkdir -p "$dir"
-    pushd "$dir"
-
-    ffmpeg -i "$video" \
+    #TODO: try passthrough, instead of vfr
+    ## Should be guessed from ".jpeg", at image2
+    ffmpeg -i "$1" \
            -filter:v select='eq(pict_type\,I)' \
-           -vsync vfr \ #TODO: try passthrough
-           -f image2 \ ## Should be guessed from ".jpeg"
+           -vsync vfr \
+           -f image2 \
            %06d.jpeg
-    ret=$?
-
-    popd
-    return $ret
 }
 
-gen_thumbnails thmbs "$1"
+function get_frames_info() {
+    ffprobe -select_streams v \
+            -show_frames \
+            "$1" \
+            > _
+}
+
+
+mkdir -p "$dir"
+pushd "$dir"
+
+set -e
+gen_thumbnails "$video"
+get_frames_info "$video"
+./chapters.py _ > __
+
+popd
