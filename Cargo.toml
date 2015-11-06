@@ -1,0 +1,7 @@
+[package]
+name = "chaptrs"
+version = "0.1.0"
+authors = ["Pierre Fenoll <pierrefenoll@gmail.com>"]
+
+[dependencies]
+ffmpeg = {git = "https://github.com/meh/rust-ffmpeg"}

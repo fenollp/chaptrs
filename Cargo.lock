@@ -1,0 +1,35 @@
+[root]
+name = "chaptrs"
+version = "0.1.0"
+dependencies = [
+ "ffmpeg 0.1.1 (git+https://github.com/meh/rust-ffmpeg)",
+]
+
+[[package]]
+name = "bitflags"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "ffmpeg"
+version = "0.1.1"
+source = "git+https://github.com/meh/rust-ffmpeg#67009f0f1749ecb58f18634cc4279f4a21c09ea9"
+dependencies = [
+ "bitflags 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ffmpeg-sys 2.8.0-5 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libc 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "ffmpeg-sys"
+version = "2.8.0-5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "libc 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "libc"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
