@@ -4,5 +4,7 @@ sudo: false
 rust:
   - nightly
 
-script:
+script: cargo build
+
+after_script:
   - travis_wait cargo test --verbose --features build
