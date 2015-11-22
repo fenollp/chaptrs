@@ -3,6 +3,21 @@ sudo: false
 
 rust:
   - nightly
+#  - beta
+#  - stable
+
+addons:
+  apt:
+    packages:
+      - nasm
+      - libavutil-dev
+      - libavcodec-dev
+      - libavdevice-dev
+      - libavformat-dev
+      - libavfilter-dev
+      - libavresample-dev
+      - libswresample-dev
+      - libswscale-dev
 
 script: cargo build
 
