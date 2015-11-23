@@ -12,6 +12,8 @@ addons:
       - nasm
 
 before_install:
+  - wget http://security.ubuntu.com/ubuntu/pool/universe/liba/libav/libavutil52_9.18-0ubuntu0.14.04.1_amd64.deb
+  - sudo dpkg -i libavutil52_9.18-0ubuntu0.14.04.1_amd64.deb
   - sudo apt-get -y install libavutil-dev libavformat-dev libavcodec-dev libswscale-dev libavdevice-dev libavfilter-dev
   - wget http://security.ubuntu.com/ubuntu/pool/universe/liba/libav/libavresample1_9.18-0ubuntu0.14.04.1_amd64.deb
   - wget http://security.ubuntu.com/ubuntu/pool/universe/liba/libav/libavresample-dev_9.18-0ubuntu0.14.04.1_amd64.deb
