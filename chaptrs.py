@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 import re
 
@@ -36,6 +36,6 @@ def get_timestamps (fn):
             prop = iframe[j]
             if prop.startswith(PROP_TS):
                 _, timestamp = prop.split('=')
-                print timestamp
+                print(timestamp)
                 choosen_iframes.append(timestamp)
     return choosen_iframes

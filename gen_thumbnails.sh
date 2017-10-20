@@ -29,6 +29,6 @@ pushd "$dir"
 set -e
 gen_thumbnails "$video"
 get_frames_info "$video"
-./chapters.py _ > __
+./chaptrs.py _ > __
 
 popd
